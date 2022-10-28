@@ -47,7 +47,8 @@ API Restfull para sistema de adoção e doação de Pets.
 - <b>informações</b>
   - Para acessar este formulário de cadastro não deverá ser exigida autenticação
   - Os dados do cadastro deverão ser persistidos no banco de dados.
-  - A senha do usuário deverá ser persistida utilizando algum algoritmo de criptografia confiável
+  - A senha do usuário deverá ser persistida utilizando algum algoritmo de criptografia confiável.
+  - Deve ser criado uma validação de idade.
 
 ---
 
