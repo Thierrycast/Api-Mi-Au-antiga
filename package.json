@@ -4,7 +4,7 @@
   "description": "API Restfull para sistema de adoção e doação de Pets.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
