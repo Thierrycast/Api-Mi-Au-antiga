@@ -1,8 +1,4 @@
-const yup = require("yup");
-
-const { pt } = require("yup-locales");
-const { setLocale } = require("yup");
-setLocale(pt);
+const yup = require("./yupConfig");
 
 const schemaLogin = yup.object().shape({
   email: yup.string().required().email(),
