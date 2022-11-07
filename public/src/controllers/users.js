@@ -7,7 +7,7 @@ const registerUser = async (req, res) => {
   const {
     nome,
     email,
-    data,
+    aniversario,
     senha,
     telefone,
     CEP,
@@ -51,6 +51,64 @@ const registerUser = async (req, res) => {
   }
 };
 
+const attUser = async (req, res) => {
+  const {
+    nome,
+    email,
+    aniversario,
+    senha,
+    telefone,
+    CEP,
+    status,
+    foto,
+    bio,
+  } = req.body;
+
+  const { user } = req
+
+  try {
+    await schemaRegisterUser.validate(req.body);
+
+    const searchEmail = await knex("usuarios")
+      .select("email")
+      .where("email", email);
+
+    if (searchEmail.length > 0) {
+      return res.status(400).json({ message: "O email já existe." });
+    }
+
+    const passwordEncrypted = await bcrypt.hash(senha, 10);
+
+    const newUser = await knex("usuarios").where("id", user.id).update({
+      nome,
+      email,
+      aniversario,
+      senha: passwordEncrypted,
+      telefone,
+      CEP,
+      status,
+      foto,
+      bio,
+    })
+
+    if (!newUser) {
+      return res.status(400).json("Não foi possível editar usuário");
+    }
+
+    if (userRegistration.length === 0) {
+      return res.status(400).json({ message: "O usuario não foi cadastrado." });
+    }
+
+    return res
+      .status(200)
+      .json({ message: "Usuário editado com sucesso"});
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
 module.exports = {
   registerUser,
+  attUser
 };
