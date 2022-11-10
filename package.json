@@ -4,7 +4,11 @@
   "description": "API Restfull para sistema de adoção e doação de Pets.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
+  },
+  "engines": {
+    "node": "1.x"
   },
   "repository": {
     "type": "git",
@@ -20,6 +24,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.0.5",
     "bcrypt": "^5.1.0",
+    "cls": "^0.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
