@@ -10,6 +10,12 @@ const knex = require("knex")({
       rejectUnauthorized: true,
     },
   },
+  pool: {
+    min: 0,
+    max: 10,
+    idleTimeoutMillis: 500,
+    reapIntervalMillis: 500,
+  },
 });
 
 module.exports = knex;
