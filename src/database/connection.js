@@ -13,8 +13,8 @@ const knex = require("knex")({
   pool: {
     min: 0,
     max: 10,
-    idleTimeoutMillis: 500,
-    reapIntervalMillis: 500,
+    idleTimeoutMillis: 30000,
+    reapIntervalMillis: 5000,
   },
 });
 
