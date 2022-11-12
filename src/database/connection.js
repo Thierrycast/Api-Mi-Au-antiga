@@ -5,9 +5,16 @@ const knex = require("knex")({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    // ssl: {
-    //   rejectUnauthorized: false,
-    // },
+    port: process.env.DB_PORT,
+    ssl: {
+      rejectUnauthorized: true,
+    },
+  },
+  pool: {
+    min: 0,
+    max: 10,
+    idleTimeoutMillis: 60000,
+    reapIntervalMillis: 5000,
   },
 });
 
