@@ -1,6 +1,7 @@
 const express = require("express");
 const route = express();
 
+
 const login = require("./controllers/login");
 const authorization = require("./middleware/authorization");
 const { registerUser, detailUser, updateUser } = require("./controllers/users");

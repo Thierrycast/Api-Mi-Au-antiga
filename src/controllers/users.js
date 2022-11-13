@@ -7,7 +7,9 @@ const {
 } = require("../validation/schemaUsers");
 
 const registerUser = async (req, res) => {
+
   const { email, senha, foto } = req.body;
+
 
   try {
     await schemaRegisterUser.validate(req.body);
@@ -131,4 +133,5 @@ module.exports = {
   registerUser,
   detailUser,
   updateUser,
+
 };
